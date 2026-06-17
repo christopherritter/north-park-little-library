@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+import Card from '../components/Card.astro';
+import MapCallout from '../components/MapCallout.astro';
+import Entrance from '../components/sections/Entrance.astro';
+import WindingPath from '../components/sections/WindingPath.astro';
+import LibraryClearing from '../components/sections/LibraryClearing.astro';
+import CommunityMeadow from '../components/sections/CommunityMeadow.astro';
+import '../styles/global.css';
+
+const navLinks = [
+    { name: 'Park Entrance', href: '#entrance' },
+    { name: 'Winding Path', href: '#path' },
+    { name: 'Library Clearing', href: '#clearing' },
+    { name: 'Community Meadow', href: '#meadow' },
+];
+---
+
+<Layout title="North Park Little Free Library">
+	<!-- Navigation -->
+	<nav class="fixed top-0 w-full bg-parchment-light dark:bg-surface-dim shadow-[0_4px_0_0_rgba(93,64,55,0.1)] z-50 transition-all duration-300" id="topNav">
+		<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-unit max-w-[1200px] mx-auto">
+			<div class="flex items-center gap-2 wiggle">
+				<span class="material-symbols-outlined text-primary text-3xl" data-weight="fill">menu_book</span>
+				<span class="font-literata font-bold text-primary italic hidden sm:block text-headline-lg-mobile md:text-headline-lg">North Park Little Library</span>
+			</div>
+			<div class="hidden md:flex items-center gap-6">
+				{navLinks.map(link => {
+					return (
+						<a href={link.href} class="text-primary border-b-2 border-earth-brown pb-1 font-label-bold text-label-bold hover:text-primary hover:skew-x-1 transition-transform" id={`nav-${link.href.replace('#', '')}`}>
+							{link.name}
+						</a>
+					);
+				})}
+			</div>
+			<div class="flex items-center gap-3">
+				<Button variant="wood" href="https://cash.app/$nplittlelibrary" target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded font-label-bold text-label-bold text-on-secondary-fixed">Donate</Button>
+				<Button variant="paper" href="mailto:Northparklittlelibrary@gmail.com?subject=Volunteer%20to%20Make%20Repairs" className="hidden sm:block px-4 py-2 rounded font-label-bold text-label-bold text-earth-brown hover:bg-surface-variant transition-colors">Volunteer</Button>
+			</div>
+		</div>
+	</nav>
+
+	<main class="relative w-full max-w-[1200px] mx-auto mt-[80px]">
+		<!-- Map Background -->
+		<div class="absolute inset-0 z-[-1] opacity-40 pointer-events-none">
+			<img alt="Hand-drawn map" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA2XTaeYTNFYmGh2tb7RCe8ezzyv2auf5OQLMKO9gAwLDW_YZyRae_sZpNwNT1OSOaYoKs6DGWREWRmNakzzXEGWBa-JrV24YnLN9RDRsPUzsXChAhkPklZluME4w_WwMA6PyHJeagmi9zlOsKPQc_o7yc8Ln1Vr6qg071on6cMFpZSC6vffQ2qedNF62IOkm_h1irAwu92S7qYCF8iko-ZZ455wgjlcYg-dtEpSvXRfynHvIMLQdygdPV5n2bCJcSyJqytTnXmsb3" />
+		</div>
+
+		<Entrance />
+		<WindingPath />
+		<LibraryClearing />
+		<CommunityMeadow />
+	</main>
+
+	<footer class="bg-surface-container-highest dark:bg-surface-variant w-full mt-gutter rounded-t-[40px] flex flex-col items-center justify-center py-margin-desktop gap-unit border-t-4 border-earth-brown border-dashed relative z-20">
+		<div class="font-literata text-headline-lg text-primary italic mb-4">North Park Little Library</div>
+		<div class="flex flex-wrap justify-center gap-6 mb-6">
+			<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-berry-red underline decoration-wavy transition-colors" href="#">Privacy Policy</a>
+			<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-berry-red underline decoration-wavy transition-colors" href="#">Contact Librarian</a>
+			<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-berry-red underline decoration-wavy transition-colors" href="#">Visit City Hall</a>
+		</div>
+		<p class="font-body-md text-body-md text-earth-brown dark:text-on-surface-variant text-center px-4 max-w-md">
+			© North Park Little Library. Hand-sketched with care.
+		</p>
+	</footer>
+
+	<script>
+		const sections = document.querySelectorAll("section");
+		const navLinks = document.querySelectorAll("nav a");
+		const topNav = document.getElementById('topNav');
+
+		window.addEventListener("scroll", () => {
+			let current = "";
+			sections.forEach((section) => {
+				const sectionTop = section.offsetTop;
+				if (window.scrollY >= sectionTop - 100) {
+				current = section.getAttribute("id");
+				}
+			});
+
+			navLinks.forEach((link) => {
+				link.classList.remove("text-primary", "border-b-2", "border-earth-brown", "pb-1");
+				link.classList.add("text-on-surface-variant");
+				if (link.getAttribute("href").includes(current)) {
+					link.classList.add("text-primary", "border-b-2", "border-earth-brown", "pb-1");
+				}
+			});
+
+			if (window.scrollY > 10) {
+				topNav?.classList.add('shadow-md');
+				} else {
+				topNav?.classList.remove('shadow-md');
+			}
+		});
+
+		const boxEl = document.querySelector('#libraryBox');
+		if (boxEl) {
+			boxEl.addEventListener('click', () => {
+				const overlay = boxEl.querySelector('.repair-overlay');
+				overlay?.classList.toggle('opacity-0');
+				overlay?.classList.toggle('pointer-events-none');
+			});
+		}
+	</script>
+</Layout>
+

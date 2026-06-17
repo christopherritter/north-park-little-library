@@ -1,0 +1,40 @@
+---
+import Card from '../Card.astro';
+
+interface Props {
+	title?: string;
+	subtitle?: string;
+	description?: string;
+}
+
+const { 
+    title = "Welcome to North Park's Little Library!",
+    subtitle = "Step right in, grab a book, and enjoy the shade.", 
+    description = "Our community library is open to all woodland creatures and readers alike." 
+} = Astro.props;
+---
+
+<section class="min-h-screen relative flex flex-col items-center justify-start pt-20 px-margin-mobile md:px-margin-desktop pb-20" id="entrance">
+    <Card variant="paper" className="text-center mb-12 z-10 p-8 rotate-[1deg] max-w-2xl mt-10">
+        <h1 class="font-literata text-headline-xl text-primary mb-4">{title}</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant">{description}</p>
+    </Card>
+    <div class="relative w-full max-w-4xl mx-auto flex flex-col md:flex-row items-end justify-center gap-10">
+        <div class="relative w-64 h-64 md:w-80 md:h-80 wiggle z-10">
+            <img alt="Fox Librarian" class="w-full h-full object-contain filter drop-shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzKJCJAyJtncMpMy-a70y7aumP3w4-gFDQwr0XzChBDDz1Jg7ZECjRdqqitYG9bERPlnb_ZUsNZK4wIbqOi4ERNwfiB8hWO81VYZCE7oB6BuFVEl9CZhdPTHi0oy9BgNAMtvdRw7Vxv3RNClAQMJR834tACzHjsyBY9hRm-knYeLyntDlawtCrNr7LzG3RGTVaPlK8J0QF_jgc3db2lZXuItFrr35cbfedgkaYvyYBdcfXlcEKgji8KGTvNGfpG2jPpyxPip-2IkD" />
+        </div>
+        <Card variant="wood" className="p-6 max-w-sm rotate-[-2deg] z-10 relative cursor-pointer">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-surface rounded-full border-2 border-earth-brown flex items-center justify-center shadow-sm">
+                <span class="material-symbols-outlined text-earth-brown text-sm" data-weight="fill">push_pin</span>
+            </div>
+            <h2 class="font-literata text-headline-lg-mobile text-on-secondary-fixed mb-2">What Happened?</h2>
+            <p class="font-body-md text-body-md text-on-secondary-fixed opacity-90">Read the story of our little library and recent events...</p>
+            <div class="mt-4 flex items-center text-primary-container font-label-bold text-label-bold group">
+                Read Story <span class="material-symbols-outlined ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </div>
+        </Card>
+    </div>
+    <div class="absolute bottom-10 animate-bounce cursor-pointer opacity-70">
+        <a href="#path"><span class="material-symbols-outlined text-4xl text-earth-brown">stat_minus_2</span></a>
+    </div>
+</section>

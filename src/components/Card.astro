@@ -1,0 +1,16 @@
+---
+interface Props {
+	children?: any;
+	className?: string;
+	variant?: 'wood' | 'paper';
+}
+
+const { children, className = "", variant = 'wood' } = Astro.props;
+---
+
+<div class={`
+	${variant === 'wood' ? 'wood-plank' : 'paper-card'} 
+	${className}
+`}>
+	<slot />
+</div>

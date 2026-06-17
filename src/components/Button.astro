@@ -1,0 +1,20 @@
+---
+interface Props {
+	href?: string;
+	children?: any;
+	className?: string;
+	variant?: 'wood' | 'paper';
+	target?: string;
+	rel?: string;
+}
+
+const { href, className = "", variant = 'wood', target, rel } = Astro.props;
+---
+
+<a href={href} target={target} rel={rel} class={`
+	${variant === 'wood' ? 'wood-plank' : 'paper-card'} 
+	inline-flex items-center justify-center cursor-pointer hover:scale-[1.02] transition-transform
+	${className}
+`}>
+	<slot />
+</a>

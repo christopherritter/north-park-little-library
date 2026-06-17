@@ -1,0 +1,28 @@
+---
+interface Props {
+    items?: Array<{ title: string; subtitle: string; icon: string; colorClass: string; rotate: string }>;
+}
+
+const { 
+    items = [
+        { title: "Upcoming Events", subtitle: "Storytime & crafting", icon: "event", colorClass: "bg-tertiary-fixed text-on-tertiary-fixed", rotate: "rotate-[-1deg]" },
+        { title: "Community Board", subtitle: "Storytime & crafting", icon: "groups", colorClass: "bg-secondary-fixed text-on-secondary-fixed", rotate: "rotate-[1deg]" }
+    ]
+} = Astro.props;
+---
+
+<section class="min-h-[50vh] relative flex flex-col items-center justify-end pb-20 pt-10 px-margin-mobile md:px-margin-desktop" id="meadow">
+    <div class="grid grid-cols-1 sm:grid-cols-H2 gap-6 w-full max-w-3xl mx-auto z-10 mb-10">
+        {items.map(item => (
+            <a class={`paper-card p-6 rounded flex items-center gap-4 hover:scale-105 transition-transform ${item.rotate}`} href="#">
+                <div class={`w-12 h-12 rounded-full flex items-center justify-center border border-earth-brown ${item.colorClass}`}>
+                    <span class="material-symbols-outlined" data-weight="fill">{item.icon}</span>
+                </div>
+                <div>
+                    <h4 class="font-label-bold text-label-bold text-primary">{item.title}</h4>
+                    <p class="font-body-md text-body-md text-sm text-on-surface-variant">{item.subtitle}</p>
+                </div>
+            </a>
+        ))}
+    </div>
+</section>

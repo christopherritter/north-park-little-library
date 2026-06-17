@@ -1,0 +1,23 @@
+---
+import MapCallout from '../MapCallout.astro';
+
+interface Props {
+    leftCallout?: { title: string; description: string; icon: string; href: string; variant: 'primary' | 'secondary' };
+    rightCallout?: { title: string; description: string; icon: string; href: string; variant: 'primary' | 'secondary' };
+}
+
+const { 
+    leftCallout = { title: "How You Can Help", description: "Join a cleanup day", icon: "park", href: "#", variant: 'primary' },
+    rightCallout = { title: "Become a Steward", description: "Adopt the library", icon: "cruelty_free", href: "#", variant: 'secondary' }
+} = Astro.props;
+---
+
+<section class="min-h-screen relative flex flex-col items-center justify-center py-20 px-margin-mobile md:px-margin-desktop" id="path">
+    <div class="absolute left-10 md:left-32 top-1/4 z-10">
+        <MapCallout {...leftCallout} />
+    </div>
+    <div class="absolute right-10 md:right-32 bottom-1/3 z-10">
+        <MapCallout {...rightCallout} />
+    </div>
+    <div class="w-full max-w-lg mx-auto border-l-4 border-dashed border-earth-brown opacity-30 h-96 absolute left-1/2 -translate-x-1/2 rounded-[100px_0_0_100px] pointer-events-none"></div>
+</section>

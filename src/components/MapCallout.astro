@@ -1,0 +1,22 @@
+---
+interface Props {
+    title: string;
+    href: string;
+    icon: string;
+    description?: string;
+    variant?: 'primary' | 'secondary';
+    className?: string;
+}
+
+const { title, href, icon, description, variant = 'primary', className = "" } = Astro.props;
+---
+
+<a href={href} class={`paper-card p-4 flex items-center gap-3 rotate-[${variant === 'primary' ? '3deg' : '-2deg'}] hover:rotate-[0deg] transition-all group ${className}`}>
+    <div class={`w-12 h-12 rounded-full border-2 border-earth-brown flex items-center justify-center ${variant === 'primary' ? 'bg-secondary-container text-on-secondary-container' : 'bg-primary-fixed text-on-primary-fixed'}`}>
+        <span class="material-symbols-outlined" data-weight="fill">{icon}</span>
+    </div>
+    <div>
+        <h3 class="font-label-bold text-label-bold text-primary">{title}</h3>
+        {description && <p class="font-body-md text-body-md text-sm text-on-surface-variant group-hover:text-primary transition-colors">{description}</p>}
+    </div>
+</a>
