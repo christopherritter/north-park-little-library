@@ -19,16 +19,16 @@ const navLinks = [
 
 <Layout title="North Park Little Free Library">
 	<!-- Navigation -->
-	<nav class="fixed top-0 w-full bg-parchment-light dark:bg-surface-dim shadow-[0_4px_0_0_rgba(93,64,55,0.1)] z-50 transition-all duration-300" id="topNav">
+	<nav class="fixed top-0 w-full bg-[#006766] shadow-[0_4px_0_0_rgba(93,64,55,0.1)] z-50 transition-all duration-300" id="topNav">
 		<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-unit max-w-[1200px] mx-auto">
 			<div class="flex items-center gap-2 wiggle">
-				<span class="material-symbols-outlined text-primary text-3xl" data-weight="fill">menu_book</span>
-				<span class="font-literata font-bold text-primary italic hidden sm:block text-headline-lg-mobile md:text-headline-lg">North Park Little Library</span>
+				<span class="material-symbols-outlined text-white text-3xl" data-weight="fill">menu_book</span>
+				<span class="font-literata font-bold text-white italic hidden sm:block text-headline-lg-mobile md:text-headline-lg">North Park Little Library</span>
 			</div>
 			<div class="hidden md:flex items-center gap-6">
 				{navLinks.map(link => {
 					return (
-						<a href={link.href} class="text-primary border-b-2 border-earth-brown pb-1 font-label-bold text-label-bold hover:text-primary hover:skew-x-1 transition-transform" id={`nav-${link.href.replace('#', '')}`}>
+						<a href={link.href} class="text-white border-b-2 border-parchment-light pb-1 font-label-bold text-label-bold hover:text-white hover:skew-x-1 transition-transform" id={`nav-${link.href.replace('#', '')}`}>
 							{link.name}
 						</a>
 					);
@@ -41,12 +41,12 @@ const navLinks = [
 		</div>
 	</nav>
 
-	<main class="relative w-full max-w-[1200px] mx-auto mt-[80px]">
-		<!-- Map Background -->
-		<div class="absolute inset-0 z-[-1] opacity-40 pointer-events-none">
-			<img alt="Hand-drawn map" class="w-full h-full object-cover" src="/images/stitch_north_park_library_map.png" />
-		</div>
+	<!-- Map Background -->
+	<div class="absolute top-0 left-0 w-full z-0 pointer-events-none flex justify-center">
+		<img alt="Hand-drawn map" class="w-full h-auto max-w-[4000px] block" src="/images/stitch_north_park_library_map.png" />
+	</div>
 
+	<main class="relative z-10 w-full max-w-[1200px] mx-auto mt-[80px]">
 		<Entrance />
 		<WindingPath />
 		<LibraryClearing />
@@ -80,10 +80,10 @@ const navLinks = [
 			});
 
 			navLinks.forEach((link) => {
-				link.classList.remove("text-primary", "border-b-2", "border-earth-brown", "pb-1");
-				link.classList.add("text-on-surface-variant");
+				link.classList.remove("text-white", "border-b-2", "border-parchment-light", "pb-1");
+				link.classList.add("text-white/70");
 				if (link.getAttribute("href").includes(current)) {
-					link.classList.add("text-primary", "border-b-2", "border-earth-brown", "pb-1");
+					link.classList.add("text-white", "border-b-2", "border-parchment-light", "pb-1");
 				}
 			});
 
