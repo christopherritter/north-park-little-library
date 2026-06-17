@@ -15,16 +15,8 @@ const {
 
 <section class="min-h-screen relative flex flex-col items-center justify-center py-20 px-margin-desktop z-20" id="clearing">
     <div class="w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-white backdrop-blur-sm p-10 rounded-xl sketch-border shadow-lg">
-        <div class="relative w-full aspect-square md:aspect-auto md:h-[500px] wiggle group cursor-pointer" id="libraryBox">
+        <div class="relative w-full aspect-square md:aspect-auto md:h-[500px]" id="libraryBox">
             <img alt="Library Box" class="w-full h-full object-contain rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_aujFeKJh99t8Xu3tLTeVP5-z4inEqj8RHXMBYKKlzs2Kp4yfevJSKEoNZv3DfQPM_f2RVKhqDLX-uLEAIl98fiPtML7RDZi1njbIRW_P21SztyKYas4jgLEIlTutGDNIcGRn8kpKYxLq0HbZ0DAOK9zJomUc3LRiMz87cbhCT_nNLwBMuKfCx7JQjfgOCOObIJ9Px7Eh6-AKcABm3KQe0vOqMSCqFRA7_2ifqKrTIIDqtDbwtCjrIWy8zA-e_nxcTKSD4A2m9KLl" />
-            <div class="repair-overlay absolute inset-0 bg-secondary-fixed/20 backdrop-filter backdrop-sepia rounded-lg flex items-center justify-center opacity-0 transition-opacity duration-500 pointer-events-none">
-                <div class="bg-surface px-4 py-2 rounded-full border-2 border-earth-brown font-label-bold text-label-bold text-forest-green shadow-md flex items-center gap-2">
-                    <span class="material-symbols-outlined" data-weight="fill">check_circle</span> Fixed!
-                    </div>
-            </div>
-            <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-error text-on-error px-4 py-2 rounded-full font-label-bold text-label-bold shadow-md animate-pulse border-2 border-background">
-                Tap to Repair
-            </div>
         </div>
         <div class="flex flex-col gap-6">
             <Card variant="paper" className="p-6 rotate-[1deg]">

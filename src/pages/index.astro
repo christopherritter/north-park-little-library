@@ -26,7 +26,7 @@ const navLinks = [
 	<!-- Navigation -->
 	<nav class="fixed top-0 w-full bg-[#006766] shadow-[0_4px_0_0_rgba(93,64,55,0.1)] z-50 transition-all duration-300" id="topNav">
 		<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-unit max-w-[1200px] mx-auto">
-			<div class="flex items-center gap-2 wiggle">
+			<div class="flex items-center gap-2">
 				<span class="material-symbols-outlined text-white text-3xl" data-weight="fill">menu_book</span>
 				<span class="font-literata font-bold text-white italic hidden sm:block text-headline-lg-mobile md:text-headline-lg">North Park Little Library</span>
 			</div>
@@ -98,15 +98,6 @@ const navLinks = [
 				topNav?.classList.remove('shadow-md');
 			}
 		});
-
-		const boxEl = document.querySelector('#libraryBox');
-		if (boxEl) {
-			boxEl.addEventListener('click', () => {
-				const overlay = boxEl.querySelector('.repair-overlay');
-				overlay?.classList.toggle('opacity-0');
-				overlay?.classList.toggle('pointer-events-none');
-			});
-		}
 	</script>
 </Layout>
 
