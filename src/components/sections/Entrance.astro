@@ -8,9 +8,9 @@ interface Props {
 }
 
 const { 
-    title = "Welcome to North Park's Little Library!",
-    subtitle = "Step right in, grab a book, and enjoy the shade.", 
-    description = "Our community library is open to all woodland creatures and readers alike." 
+    title = "A Grim Discovery",
+    subtitle = "Our local library is falling apart.", 
+    description = "Two neighbors recently took a walk through the park and found our Little Free Library in a heartbreaking state. The wood has turned soft with rot, greenery is claiming the shelves, and parts of the frame are simply lying on the ground. It's no longer a sanctuary for books—it's a ruin." 
 } = Astro.props;
 ---
 
@@ -29,11 +29,13 @@ const {
             <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-surface rounded-full border-2 border-earth-brown flex items-center justify-center shadow-sm">
                 <span class="material-symbols-outlined text-earth-brown text-sm" data-weight="fill">push_pin</span>
             </div>
-            <h2 class="font-literata text-headline-lg-mobile text-on-secondary-fixed mb-2">What Happened?</h2>
-            <p class="font-body-md text-body-md text-on-secondary-fixed opacity-90">Read the story of our little library and recent events...</p>
+        <a href="#clearing" class="block no-underline">
+            <h2 class="font-literata text-headline-lg-mobile text-on-secondary-fixed mb-2">How Can I Help?</h2>
+            <p class="font-body-md text-body-md text-on-secondary-fixed opacity-90">Find out how you can help repair our local library and bring it back to life.</p>
             <div class="mt-4 flex items-center text-primary-container font-label-bold text-label-bold group">
-                Read Story <span class="material-symbols-outlined ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                Learn More <span class="material-symbols-outlined ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </div>
+        </a>
         </Card>
     </div>
     <div class="absolute bottom-10 animate-bounce cursor-pointer opacity-70">

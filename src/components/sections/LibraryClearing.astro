@@ -8,13 +8,13 @@ interface Props {
 }
 
 const { 
-    title = "The Library Needs You",
-    description = "Our beloved library box has seen better days. With your help, we can fix the roof, restock the shelves, and make it better than ever."
+    title = "Support the Restoration",
+    description = "Every contribution brings us closer to a new, weather-proofed library for our community. Choose your way to help below."
 } = Astro.props;
 ---
 
 <section class="min-h-screen relative flex flex-col items-center justify-center py-20 px-margin-desktop z-20" id="clearing">
-    <div class="w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-surface/80 backdrop-blur-sm p-10 rounded-xl sketch-border shadow-lg">
+    <div class="w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-white backdrop-blur-sm p-10 rounded-xl sketch-border shadow-lg">
         <div class="relative w-full aspect-square md:aspect-auto md:h-[500px] wiggle group cursor-pointer" id="libraryBox">
             <img alt="Library Box" class="w-full h-full object-contain rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_aujFeKJh99t8Xu3tLTeVP5-z4inEqj8RHXMBYKKlzs2Kp4yfevJSKEoNZv3DfQPM_f2RVKhqDLX-uLEAIl98fiPtML7RDZi1njbIRW_P21SztyKYas4jgLEIlTutGDNIcGRn8kpKYxLq0HbZ0DAOK9zJomUc3LRiMz87cbhCT_nNLwBMuKfCx7JQjfgOCOObIJ9Px7Eh6-AKcABm3KQe0vOqMSCqFRA7_2ifqKrTIIDqtDbwtCjrIWy8zA-e_nxcTKSD4A2m9KLl" />
             <div class="repair-overlay absolute inset-0 bg-secondary-fixed/20 backdrop-filter backdrop-sepia rounded-lg flex items-center justify-center opacity-0 transition-opacity duration-500 pointer-events-none">
@@ -33,11 +33,11 @@ const {
                 <div class="flex flex-col gap-4">
                     <Button variant="wood" href="https://cash.app/$nplittlelibrary" target="_blank" rel="noopener noreferrer" className="w-full py-4 px-6 rounded flex items-center justify-center gap-3 group font-label-bold text-label-bold text-on-secondary-fixed text-lg">
                         <span class="material-symbols-outlined text-2xl group-hover:rotate-12 transition-transform" data-weight="fill">home_repair_service</span>
-                        Donate to Repair Fund
+                        Pledge to the Fund
                     </Button>
                     <Button variant="paper" href="mailto:Northparklittlelibrary@gmail.com?subject=Volunteer%20to%20Make%20Repairs" className="w-full py-4 px-6 rounded flex items-center justify-center gap-3 hover:bg-surface-variant transition-colors group font-label-bold text-label-bold text-earth-brown text-lg">
                         <span class="material-symbols-outlined text-2xl group-hover:-translate-y-1 transition-transform" data-weight="fill">volunteer_activism</span>
-                        Volunteer to Make Repairs
+                        Volunteer for Repairs
                     </Button>
                 </div>
             </Card>

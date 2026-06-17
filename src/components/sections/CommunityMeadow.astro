@@ -1,28 +1,39 @@
 ---
 interface Props {
-    items?: Array<{ title: string; subtitle: string; icon: string; colorClass: string; rotate: string }>;
+    // No longer using the items array for general events
 }
 
-const { 
-    items = [
-        { title: "Upcoming Events", subtitle: "Storytime & crafting", icon: "event", colorClass: "bg-tertiary-fixed text-on-tertiary-fixed", rotate: "rotate-[-1deg]" },
-        { title: "Community Board", subtitle: "Storytime & crafting", icon: "groups", colorClass: "bg-secondary-fixed text-on-secondary-fixed", rotate: "rotate-[1deg]" }
-    ]
-} = Astro.props;
 ---
 
 <section class="min-h-[50vh] relative flex flex-col items-center justify-end pb-20 pt-10 px-margin-mobile md:px-margin-desktop" id="meadow">
-    <div class="grid grid-cols-1 sm:grid-cols-H2 gap-6 w-full max-w-3xl mx-auto z-10 mb-10">
-        {items.map(item => (
-            <a class={`paper-card p-6 rounded flex items-center gap-4 hover:scale-105 transition-transform ${item.rotate}`} href="#">
-                <div class={`w-12 h-12 rounded-full flex items-center justify-center border border-earth-brown ${item.colorClass}`}>
-                    <span class="material-symbols-outlined" data-weight="fill">{item.icon}</span>
+    <div class="max-w-3xl w-full mx-auto z-10 mb-10 text-center">
+        <h2 class="font-literata text-headline-lg text-primary mb-4">The Assembly Squad</h2>
+        <p class="font-body-md text-on-surface-variant mb-8 max-w-xl mx-auto">
+            Raising the funds is only half the battle. Once our new library arrives, we need a few handy neighbors with tools and time to help us assemble it and secure the post in the ground.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row justify-center gap-6 items-center">
+            <a href="mailto:Northparklittlelibrary@gmail.com?subject=Volunteer%20for%20Assembly" 
+               class="paper-card bg-surface-container-low p-6 rounded flex items-center gap-4 hover:scale-105 transition-transform rotate-[1deg] border-2 border-earth-brown/30 shadow-sm group">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center bg-secondary-fixed text-on-secondary-fixed border border-earth-brown group-hover:rotate-12 transition-transform">
+                    <span class="material-symbols-outlined" data-weight="fill">handyman</span>
                 </div>
-                <div>
-                    <h4 class="font-label-bold text-label-bold text-primary">{item.title}</h4>
-                    <p class="font-body-md text-body-md text-sm text-on-surface-variant">{item.subtitle}</p>
+                <div class="text-left">
+                    <h4 class="font-label-bold text-label-bold text-primary">I have tools & time</h4>
+                    <p class="font-body-md text-body-md text-sm text-on-surface-variant">Volunteer to build</p>
                 </div>
             </a>
-        ))}
+
+<a href="mailto:Northparklittlelibrary@gmail.com?subject=Volunteer%20to%20Help" 
+               class="paper-card bg-surface-container-low p-6 rounded flex items-center gap-4 hover:scale-105 transition-transform rotate-[-1deg] border-2 border-earth-brown/30 shadow-sm group">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center bg-tertiary-fixed text-on-tertiary-fixed border border-earth-brown group-hover:-rotate-12 transition-transform">
+                    <span class="material-symbols-outlined" data-weight="fill">volunteer_activism</span>
+                </div>
+                <div class="text-left">
+                    <h4 class="font-label-bold text-label-bold text-primary">I can help out</h4>
+                    <p class="font-body-md text-body-md text-sm text-on-surface-variant">General assistance</p>
+                </div>
+            </a>
+        </div>
     </div>
 </section>
