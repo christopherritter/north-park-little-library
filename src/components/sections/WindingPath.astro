@@ -7,9 +7,27 @@ interface Props {
 }
 
 const { 
-    goal = 600,
+    goal = 1000,
     raised = 0
 } = Astro.props;
+
+const tiers = [
+    { name: "Mini Shed Little Free Library", cost: 50 },
+    { name: "Cottage Unfinished Little Free Library", cost: 120 },
+    { name: "Two Story Shed Unfinished Little Free Library", cost: 180 },
+    { name: "Two Story Gable Unfinished Little Free Library", cost: 250 },
+    { name: "Double Door Shed Unfinished Little Free Library", cost: 320 },
+    { name: "Composite One-Story Library", cost: 420 },
+    { name: "Composite Two-Story Library", cost: 520 },
+    { name: "Composite Double Door Library", cost: 650 },
+];
+
+const addOns = [
+    { category: "Charter Signs", items: ["Official Charter Sign", "English-Spanish Bilingual Official Charter Sign", "Custom Little Free Library Charter Sign"] },
+    { category: "Posts and Mounting", items: ["Library Post with Topper Kit", "Screw-In Library Post with Topper", "Composite Library Post and Topper Kit Black", "Composite Screw In Library Post and Topper Black"] },
+    { category: "Book Support", items: ["Book Bundle Ages 12 and Under (40 Books)", "Book Bundle Kids and Adults Mix (35 Books)"] },
+    { category: "Neighborhood Extras", items: ["Seasonal Garden Flag Bundle", "Customizable Artisan Stamp", "Standard Artisan Stamp", "Dog Hook", "Dog Treat Box"] },
+];
 
 const percentage = Math.min(Math.round((raised / goal) * 100), 100);
 ---
@@ -18,12 +36,12 @@ const percentage = Math.min(Math.round((raised / goal) * 100), 100);
     <div class="w-full max-w-3xl z-10 flex flex-col gap-12">
         <!-- Fundraising Progress Card -->
         <Card variant="paper" className="p-8 shadow-lg border-2 border-earth-brown/20 text-center">
-            <h2 class="font-literata text-headline-lg text-primary mb-2">Our Restoration Fund</h2>
-            <p class="font-body-md text-on-surface-variant mb-6 max-w-xl mx-auto">We're raising funds to replace the decayed structure with something built to last. Every bit helps us reach the Gold Standard.</p>
+            <h2 class="font-literata text-headline-lg text-primary mb-2">Neighborhood Restoration Fund</h2>
+            <p class="font-body-md text-on-surface-variant mb-6 max-w-xl mx-auto">We're raising money together to replace our worn-out Little Free Library. Every donation moves us toward the next tier.</p>
             
             <div class="flex justify-between items-end mb-2 font-label-bold text-label-bold text-primary">
                 <span class="text-2xl">${raised} <span class="text-sm opacity-70">raised</span></span>
-                <span class="text-sm opacity-70">of ${goal} goal</span>
+                <span class="text-sm opacity-70">of ${goal} total goal</span>
             </div>
             <div class="w-full h-6 bg-surface rounded-full overflow-hidden border-2 border-earth-brown shadow-inner">
                 <div 
@@ -34,34 +52,49 @@ const percentage = Math.min(Math.round((raised / goal) * 100), 100);
                 </div>
             </div>
             <p class="mt-4 text-center font-body-md text-on-surface-variant italic">
-                ${percentage === 100 ? "Goal reached! Thank you!" : `${goal - raised} more to go for the Gold Standard library.`}
+                {percentage === 100 ? "All goals reach! Thank you!" : `${goal - raised} more to go for the ultimate community library.`}
             </p>
         </Card>
 
-        <!-- Budget Breakdown -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <Card variant="paper" className="p-6 border-l-4 border-primary">
-                <h3 class="font-literata text-headline-sm text-primary mb-2 flex items-center gap-2">
-                    <span class="material-symbols-outlined text-sm">savings</span> The Budget Path
-                </h3>
-                <p class="text-sm text-on-surface-variant mb-4">A functional, clean replacement to get the community reading again.</p>
-                <div class="font-label-bold text-label-bold text-earth-brown bg-surface/50 p-2 rounded text-center border border-dashed border-earth-brown/40">
-                    Est. Cost: ~$190 + Post
-                </div>
-            </Card>
+        <!-- Funding Path Checklist -->
+        <Card variant="paper" className="p-8 border-2 border-earth-brown/20">
+            <h3 class="font-literata text-headline-sm text-primary mb-6 flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm">checklist</span> Funding Path
+            </h3>
+            <ul class="space-y-3 font-body-md text-on-surface-variant">
+                {tiers.map((tier) => (
+                    <li class={`flex items-center gap-3 ${raised >= tier.cost ? 'text-primary font-medium' : 'opacity-60'}`}>
+                        <span class={`material-symbols-outlined text-sm ${raised >= tier.cost ? 'text-primary' : 'text-on-surface-variant'}`}>
+                            {raised >= tier.cost ? 'check_circle' : 'radio_button_unchecked'}
+                        </span>
+                        {raised >= tier.cost ? `Funded: ${tier.name}` : tier.name}
+                    </li>
+                ))}
+            </ul>
+        </Card>
 
-            <Card variant="paper" className="p-6 border-l-4 border-secondary-fixed shadow-md">
-                <h3 class="font-literata text-headline-sm text-primary mb-2 flex items-center gap-2">
-                    <span class="material-symbols-outlined text-sm">stars</span> The Gold Standard
-                </h3>
-                <p class="text-sm text-on-surface-variant mb-4">Top-of-the-line weatherproofing and materials to last for decades.</p>
-                <div class="font-label-bold text-label-bold text-earth-brown bg-secondary-fixed/10 p-2 rounded text-center border border-dashed border-secondary-fixed/40">
-                    Est. Cost: ~$449 + Shipping + Post (~$600 Total)
+        <!-- Add-Ons Section -->
+        <Card variant="paper" className={`p-8 border-2 transition-all duration-500 ${raised >= tiers[tiers.length - 1].cost ? 'border-primary shadow-md' : 'border-earth-brown/10 opacity-60 grayscale'}`}>
+            <h3 class="font-literata text-headline-sm text-primary mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm">shopping_basket</span> Community Extras & Add-Ons
+            </h3>
+            {raised >= tiers[tiers.length - 1].cost ? (
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 font-body-md text-on-surface-variant">
+                    {addOns.map((group) => (
+                        <div class="flex flex-col gap-2">
+                            <span class="font-label-bold text-primary uppercase text-xs">{group.category}</span>
+                            <ul class="space-y-1 border-l-2 border-primary/30 pl-4">
+                                {group.items.map(item => <li>{item}</li>)}
+                            </ul>
+                        </div>
+                    ))}
                 </div>
-            </Card>
-        </div>
+            ) : (
+                <p class="text-sm italic text-on-surface-variant">These add-ons will be unlocked once the Composite Double Door Library is funded.</p>
+            )}
+        </Card>
     </div>
 
-    <!-- Visual Path Element (kept for aesthetic continuity) -->
+    <!-- Visual Path Element -->
     <div class="w-full max-w-lg mx-auto border-l-4 border-dashed border-earth-brown opacity-10 h-96 absolute left-1/2 -translate-x-1/2 rounded-[100px_0_0_100px] pointer-events-none"></div>
 </section>
