@@ -12,21 +12,67 @@ const {
 } = Astro.props;
 
 const tiers = [
-    { name: "Mini Shed Little Free Library", cost: 50 },
-    { name: "Cottage Unfinished Little Free Library", cost: 120 },
-    { name: "Two Story Shed Unfinished Little Free Library", cost: 180 },
-    { name: "Two Story Gable Unfinished Little Free Library", cost: 250 },
-    { name: "Double Door Shed Unfinished Little Free Library", cost: 320 },
-    { name: "Composite One-Story Library", cost: 420 },
-    { name: "Composite Two-Story Library", cost: 520 },
-    { name: "Composite Double Door Library", cost: 650 },
+    { 
+        name: "Mini Shed Little Free Library", 
+        cost: 189.95, 
+        description: "A compact start to our neighborhood's reading journey.",
+        image: "https://littlefreelibrary.myshopify.com/cdn/shop/products/MiniShedLittleFreeLibraryResized1.png?v=1631130327&width=1800",
+        url: "https://littlefreelibrary.myshopify.com/collections/little-free-libraries/products/mini-shed"
+    },
+    { 
+        name: "Cottage Unfinished Little Free Library", 
+        cost: 259.95, 
+        description: "Adding more space and a classic cottage charm.",
+        image: "https://littlefreelibrary.myshopify.com/cdn/shop/files/UnfinishedCottageLittleFreeLibrary1.png?v=1695418768&width=1080",
+        url: "https://littlefreelibrary.myshopify.com/collections/little-free-libraries/products/cozy-cottage"
+    },
+    { 
+        name: "Two Story Shed Unfinished Little Free Library", 
+        cost: 299.95, 
+        description: "Expanding vertically to house even more community favorites.",
+        image: "https://littlefreelibrary.myshopify.com/cdn/shop/products/TwoStoryShedUnfininshedLittleFreeLibrary1.png?v=1586004317&width=1080",
+        url: "https://littlefreelibrary.myshopify.com/collections/little-free-libraries/products/amish-two-story"
+    },
+    { 
+        name: "Composite One-Story Library", 
+        cost: 349.95, 
+        description: "Low maintenance, high durability—built to withstand the elements.",
+        image: "https://littlefreelibrary.myshopify.com/cdn/shop/files/Compositeonestoryblue1.png?v=1753995141&width=1080",
+        url: "https://littlefreelibrary.myshopify.com/collections/little-free-libraries/products/composite-one-story-blue-little-free-library"
+    },
+    { 
+        name: "Composite Two-Story Library", 
+        cost: 409.95, 
+        description: "The gold standard of durability and capacity.",
+        image: "https://littlefreelibrary.myshopify.com/cdn/shop/files/Composite_Two_story_Light_Blue_1.png?v=1745269697&width=1080",
+        url: "https://littlefreelibrary.myshopify.com/collections/little-free-libraries/products/composite-two-story-blue"
+    },
+    { 
+        name: "Composite Double Door Library", 
+        cost: 439.95, 
+        description: "The ultimate community hub for books and connection.",
+        image: "https://littlefreelibrary.myshopify.com/cdn/shop/files/CompositeDoubleDoorCottageLittleFreeLibrary1.png?v=1684350755&width=1080",
+        url: "https://littlefreelibrary.myshopify.com/collections/little-free-libraries/products/composite-double-door-cottage-blue-little-free-library"
+    },
 ];
 
 const addOns = [
-    { category: "Charter Signs", items: ["Official Charter Sign", "English-Spanish Bilingual Official Charter Sign", "Custom Little Free Library Charter Sign"] },
-    { category: "Posts and Mounting", items: ["Library Post with Topper Kit", "Screw-In Library Post with Topper", "Composite Library Post and Topper Kit Black", "Composite Screw In Library Post and Topper Black"] },
-    { category: "Book Support", items: ["Book Bundle Ages 12 and Under (40 Books)", "Book Bundle Kids and Adults Mix (35 Books)"] },
-    { category: "Neighborhood Extras", items: ["Seasonal Garden Flag Bundle", "Customizable Artisan Stamp", "Standard Artisan Stamp", "Dog Hook", "Dog Treat Box"] },
+    { 
+        category: "Library Posts", 
+        items: [
+            { name: "Library Post with Topper", price: "89.95", image: "https://littlefreelibrary.myshopify.com/cdn/shop/files/LFLpostkithero21x1.png?v=1706134424&width=1800", url: "https://littlefreelibrary.myshopify.com/collections/all-products/products/library-post-with-topper-kit" },
+            { name: "Screw In Library Post with Topper", price: "159.95", image: "https://littlefreelibrary.myshopify.com/cdn/shop/products/Little_Free_Library_Screw-In_Library_Post_with_Topper.jpg?v=1621884973&width=1800", url: "https://littlefreelibrary.myshopify.com/collections/all-products/products/screw-in-library-post-with-topper" },
+            { name: "Composite Library Post and Topper Kit", price: "129.95", image: "https://littlefreelibrary.myshopify.com/cdn/shop/files/CompositePostKitBlackHeroLittleFreeLibrary1x1.png?v=1740681889&width=1800", url: "https://littlefreelibrary.myshopify.com/collections/all-products/products/composite-library-post-and-topper-kit-black" },
+            { name: "Composite Screen In Library Post and Topper Black", price: "179.95", image: "https://littlefreelibrary.myshopify.com/cdn/shop/products/CompositeScrewInLibraryPostandTopper1000x1000.jpg?v=1611765357&width=1800", url: "https://littlefreelibrary.myshopify.com/collections/all-products/products/composite-screw-in-library-post-and-topper-black" },
+        ] 
+    },
+    { 
+        category: "Charter Signs", 
+        items: [
+            { name: "Official Charter Sign", price: "49.95", image: "https://littlefreelibrary.myshopify.com/cdn/shop/files/CharterSignOfficial1x1.png?v=1708640155&width=1800", url: "https://littlefreelibrary.myshopify.com/collections/all-products/products/silver-aluminum-charter-sign" },
+            { name: "Little Free Library Custom Charter Sign", price: "79.95", image: "https://littlefreelibrary.myshopify.com/cdn/shop/files/CustomCharterSignHeroPhoto1x1.png?v=1708640451&width=1800", url: "https://littlefreelibrary.myshopify.com/collections/all-products/products/custom-aluminum-charter-sign" },
+        ] 
+    },
 ];
 
 const percentage = Math.min(Math.round((raised / goal) * 100), 100);
@@ -52,47 +98,80 @@ const percentage = Math.min(Math.round((raised / goal) * 100), 100);
                 </div>
             </div>
             <p class="mt-4 text-center font-body-md text-on-surface-variant italic">
-                {percentage === 100 ? "All goals reach! Thank you!" : `${goal - raised} more to go for the ultimate community library.`}
+                {percentage === 100 ? "All goals reached! Thank you!" : `${goal - raised} more to go for the ultimate community library.`}
             </p>
         </Card>
 
-        <!-- Funding Path Checklist -->
-        <Card variant="paper" className="p-8 border-2 border-earth-brown/20">
-            <h3 class="font-literata text-headline-sm text-primary mb-6 flex items-center gap-2">
-                <span class="material-symbols-outlined text-sm">checklist</span> Funding Path
-            </h3>
-            <ul class="space-y-3 font-body-md text-on-surface-variant">
-                {tiers.map((tier) => (
-                    <li class={`flex items-center gap-3 ${raised >= tier.cost ? 'text-primary font-medium' : 'opacity-60'}`}>
-                        <span class={`material-symbols-outlined text-sm ${raised >= tier.cost ? 'text-primary' : 'text-on-surface-variant'}`}>
-                            {raised >= tier.cost ? 'check_circle' : 'radio_button_unchecked'}
-                        </span>
-                        {raised >= tier.cost ? `Funded: ${tier.name}` : tier.name}
-                    </li>
-                ))}
-            </ul>
-        </Card>
+        <!-- Funding Path Cards -->
+        <div class="flex flex-col gap-8">
+            {tiers.map((tier, index) => {
+                const isFunded = raised >= tier.cost;
+                const rotation = index % 2 === 0 ? 'rotate-1' : '-rotate-1';
+                return (
+                    <a href={tier.url} target="_blank" rel="noopener noreferrer" class="block group">
+                        <Card 
+                            variant="paper" 
+                            className={`flex flex-col md:flex-row overflow-hidden border-2 transition-all duration-500 shadow-sm ${rotation} ${isFunded ? 'border-primary opacity-100' : 'border-earth-brown/20 grayscale'} group-hover:shadow-md group-hover:-translate-y-1`}
+                        >
+                            <div class="w-full md:w-48 h-32 md:h-auto bg-surface-variant relative overflow-hidden">
+                                <img 
+                                    src={tier.image} 
+                                    alt={tier.name} 
+                                    class={`w-full h-full object-cover transition-all duration-500 ${isFunded ? 'scale-100' : 'scale-110 grayscale'} group-hover:scale-105`}
+                                />
+                                {isFunded && (
+                                    <div class="absolute top-2 left-2 bg-primary text-white px-2 py-1 rounded text-xs font-label-bold shadow-sm flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-xs">check_circle</span> Funded
+                                    </div>
+                                )}
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col justify-center">
+                                <div class="flex justify-between items-start mb-2">
+                                    <span class={`font-literata text-headline-sm transition-colors ${isFunded ? 'text-primary' : 'text-on-surface-variant'} group-hover:text-primary`}>{tier.name}</span>
+                                    <span class={`font-label-bold text-label-bold ${isFunded ? 'text-primary' : 'text-on-surface-variant opacity-70'}`}>${tier.cost}</span>
+                                </div>
+                                <p class="font-body-md text-body-md text-on-surface-variant/80 leading-relaxed">
+                                    {tier.description}
+                                </p>
+                            </div>
+                        </Card>
+                    </a>
+                );
+            })}
+        </div>
 
         <!-- Add-Ons Section -->
-        <Card variant="paper" className={`p-8 border-2 transition-all duration-500 ${raised >= tiers[tiers.length - 1].cost ? 'border-primary shadow-md' : 'border-earth-brown/10 opacity-60 grayscale'}`}>
-            <h3 class="font-literata text-headline-sm text-primary mb-4 flex items-center gap-2">
-                <span class="material-symbols-outlined text-sm">shopping_basket</span> Community Extras & Add-Ons
-            </h3>
-            {raised >= tiers[tiers.length - 1].cost ? (
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 font-body-md text-on-surface-variant">
-                    {addOns.map((group) => (
-                        <div class="flex flex-col gap-2">
-                            <span class="font-label-bold text-primary uppercase text-xs">{group.category}</span>
-                            <ul class="space-y-1 border-l-2 border-primary/30 pl-4">
-                                {group.items.map(item => <li>{item}</li>)}
+        <div class="flex flex-col gap-6">
+            <div class="flex items-center gap-2 mb-2 transition-all duration-500">
+                <h3 class="font-literata text-headline-sm text-primary flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm">shopping_basket</span> Community Extras & Add-Ons
+                </h3>
+            </div>
+
+            <div class="flex flex-col gap-8">
+                {addOns.map((group, index) => {
+                    const isUnlocked = raised >= tiers[tiers.length - 1].cost;
+                    return (
+                        <Card variant="paper" className={`p-6 border-2 border-earth-brown/20 shadow-sm transition-all duration-500 ${index % 2 === 0 ? 'rotate-1' : '-rotate-1'} ${isUnlocked ? '' : 'grayscale opacity-90'}`}>
+                            <span class="font-label-bold text-primary uppercase text-xs block mb-3">{group.category}</span>
+                            <ul class="space-y-2 font-body-md text-on-surface-variant">
+                                {group.items.map(item => (
+                                    <li class="flex items-center justify-between gap-2 border-l-2 border-primary/30 pl-3 py-1 hover:bg-primary/5 transition-colors">
+                                        <div class="flex items-center gap-2 overflow-hidden">
+                                            {item.image && <img src={item.image} alt="" class="w-8 h-8 object-cover rounded shadow-sm flex-shrink-0" />}
+                                            <a href={item.url} target="_blank" rel="noopener noreferrer" class={`transition-colors hover:text-primary ${item.url ? 'text-on-surface-variant' : 'text-on-surface-variant/50 cursor-not-allowed'}`} style={item.url ? {} : {pointerEvents: 'none'}}>
+                                                {item.name}
+                                            </a>
+                                        </div>
+                                        {item.price && <span class="font-label-bold text-primary text-xs">${item.price}</span>}
+                                    </li>
+                                ))}
                             </ul>
-                        </div>
-                    ))}
-                </div>
-            ) : (
-                <p class="text-sm italic text-on-surface-variant">These add-ons will be unlocked once the Composite Double Door Library is funded.</p>
-            )}
-        </Card>
+                        </Card>
+                    );
+                })}
+            </div>
+        </div>
     </div>
 
     <!-- Visual Path Element -->
