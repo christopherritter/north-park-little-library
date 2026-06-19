@@ -23,9 +23,8 @@ const navLinks = [
 ---
 
 <Layout title="North Park Little Free Library">
-	<!-- Navigation -->
 	<nav class="fixed top-0 w-full bg-[#006766] shadow-[0_4px_0_0_rgba(93,64,55,0.1)] z-50 transition-all duration-300" id="topNav">
-		<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-unit max-w-[1200px] mx-auto">
+		<div class="flex justify-between items-center w-full px-4 md:px-8 py-4 max-w-[1200px] mx-auto">
 			<div class="flex items-center gap-2">
 				<span class="material-symbols-outlined text-white text-3xl" data-weight="fill">menu_book</span>
 				<span class="font-literata font-bold text-white italic hidden sm:block text-headline-lg-mobile md:text-headline-lg">North Park Little Library</span>
@@ -45,25 +44,25 @@ const navLinks = [
 			</div>
 		</div>
 	</nav>
-
+ 
 	<!-- Map Background -->
-	<div class="absolute top-0 left-0 w-full z-0 pointer-events-none flex justify-center">
-		<img alt="Hand-drawn map" class="w-full h-auto max-w-[4000px] block" src="/images/stitch_north_park_library_map.png" />
+	<div class="absolute top-0 left-0 w-full z-0 pointer-events-none flex justify-center overflow-hidden">
+		<img alt="Hand-drawn map" class="w-full h-auto max-w-full min-w-[1200px] block" src="/images/stitch_north_park_library_map.png" />
 	</div>
-
+ 
 	<main class="relative z-10 w-full max-w-[1200px] mx-auto mt-[80px]">
 		<Entrance />
 		<WindingPath goal={fundingConfig.goal} raised={fundingConfig.raised} />
 		<LibraryClearing />
 		<CommunityMeadow />
 	</main>
-
-	<footer class="bg-surface-container-highest dark:bg-surface-variant w-full mt-gutter rounded-t-[40px] flex flex-col items-center justify-center py-20 md:py-40 gap-unit border-t-4 border-earth-brown border-dashed relative z-20">
+ 
+	<footer class="bg-surface-container-highest dark:bg-surface-variant w-full mt-16 rounded-t-[40px] flex flex-col items-center justify-center py-20 md:py-40 gap-4 border-t-4 border-earth-brown border-dashed relative z-20">
 		<div class="font-literata text-headline-lg text-primary italic mb-4">North Park Little Library</div>
 		
 		<div class="flex flex-col items-center justify-center gap-4">
 			<p class="font-body-md text-body-md text-earth-brown dark:text-on-surface-variant text-center px-4 max-w-md">
-				(c) 2026 North Park Little Library. 
+				© 2026 North Park Little Library. 
 				<a href="mailto:Northparklittlelibrary@gmail.com" class="font-label-bold text-label-bold text-primary hover:text-berry-red underline decoration-wavy transition-colors ml-1">Contact Us</a>
 			</p>
 
