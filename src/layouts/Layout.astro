@@ -20,4 +20,8 @@ const { title = "North Park Little Free Library" } = Astro.props;
 	<body class="bg-parchment-light text-on-background font-source-sans min-h-screen overflow-x-hidden">
 		<slot />
 	</body>
+	<script>
+		import { inject } from '@vercel/analytics';
+		inject();
+	</script>
 </html>
