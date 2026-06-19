@@ -27,3 +27,7 @@ Thumbs.db
 .idea/
 
 .vercel
+
+# opencode agent files
+.agents/
+skills-lock.json
