@@ -52,7 +52,7 @@
   --color-earth-brown: #5D4037;
   --color-sky-blue: #81D4FA;
   --color-berry-red: #D32F2F;
-  --color-parchment-light: #FBE8BE;
+  --color-parchment-light: #E7D6B0;
 
   --font-family-literata: 'Literata', serif;
   --font-family-source-sans: 'Source Sans 3', sans-serif;
@@ -109,6 +109,11 @@
 
   .wiggle:hover {
     transform: rotate(3deg) scale(1.05);
+  }
+
+  .blend-edges {
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
   }
 
   /* Custom scrollbar */
