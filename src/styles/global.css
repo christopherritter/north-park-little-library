@@ -59,10 +59,14 @@
 
   --text-headline-xl: 48px;
   --text-headline-lg: 32px;
-  --text-headline-lg-mobile: 28px;
+  --text-headline-lg-mobile: 24px;
+  --text-headline-sm: 20px;
+  --text-headline-sm-mobile: 18px;
   --text-body-lg: 18px;
   --text-body-md: 16px;
+  --text-body-md-mobile: 14px;
   --text-label-bold: 14px;
+  --text-label-bold-mobile: 12px;
 }
 
 @layer base {

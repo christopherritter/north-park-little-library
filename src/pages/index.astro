@@ -25,10 +25,10 @@ const navLinks = [
 <Layout title="North Park Little Free Library">
 	<nav class="fixed top-0 w-full bg-[#006766] shadow-[0_4px_0_0_rgba(93,64,55,0.1)] z-50 transition-all duration-300" id="topNav">
 		<div class="flex justify-between items-center w-full px-4 md:px-8 py-4 max-w-[1200px] mx-auto">
-			<div class="flex items-center gap-2">
-				<span class="material-symbols-outlined text-white text-3xl" data-weight="fill">menu_book</span>
-				<span class="font-literata font-bold text-white italic hidden sm:block text-headline-lg-mobile md:text-headline-lg">North Park Little Library</span>
-			</div>
+			<a href="#entrance" class="flex items-center gap-2 min-w-0 cursor-pointer no-underline">
+				<span class="material-symbols-outlined text-white text-2xl md:text-3xl" data-weight="fill">menu_book</span>
+				<span class="font-literata font-bold text-white italic hidden sm:block truncate text-headline-lg-mobile md:text-headline-lg">North Park Little Library</span>
+			</a>
 			<div class="hidden md:flex items-center gap-6">
 				{navLinks.map(link => {
 					return (
@@ -38,9 +38,9 @@ const navLinks = [
 					);
 				})}
 			</div>
-			<div class="flex items-center gap-3">
-				<Button variant="wood" href="#clearing" className="px-4 py-2 rounded font-label-bold text-label-bold text-on-secondary-fixed">Pledge</Button>
-				<Button variant="paper" href="#meadow" className="hidden sm:block px-4 py-2 rounded font-label-bold text-label-bold text-earth-brown hover:bg-surface-variant transition-colors">Volunteer</Button>
+			<div class="flex items-center gap-2 md:gap-3 min-w-0">
+				<Button variant="wood" href="#clearing" className="px-3 py-1.5 md:px-4 md:py-2 rounded font-label-bold text-label-bold-mobile md:text-label-bold text-on-secondary-fixed whitespace-nowrap">Pledge</Button>
+				<Button variant="paper" href="#meadow" className="hidden sm:block px-3 py-1.5 md:px-4 md:py-2 rounded font-label-bold text-label-bold-mobile md:text-label-bold text-earth-brown hover:bg-surface-variant transition-colors whitespace-nowrap">Volunteer</Button>
 			</div>
 		</div>
 	</nav>
@@ -58,7 +58,7 @@ const navLinks = [
 	</main>
  
 	<footer class="bg-surface-container-highest dark:bg-surface-variant w-full mt-16 rounded-t-[40px] flex flex-col items-center justify-center py-20 md:py-40 gap-4 border-t-4 border-earth-brown border-dashed relative z-20">
-		<div class="font-literata text-headline-lg text-primary italic mb-4">North Park Little Library</div>
+		<div class="font-literata text-headline-lg-mobile md:text-headline-lg text-primary italic mb-4">North Park Little Library</div>
 		
 		<div class="flex flex-col items-center justify-center gap-4">
 			<p class="font-body-md text-body-md text-earth-brown dark:text-on-surface-variant text-center px-4 max-w-md">
